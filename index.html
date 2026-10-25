@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手術險一次看懂：手術、處置、門診手術與實支實付</title>
+<meta name="description" content="給保險業務夥伴的手術險教學頁：手術的定義、健保 226／227／3343 代碼差異、定額型與實支實付、客戶常見情境與 Q&A。">
+<style>
+:root{
+  --teal:#0f6b73; --teal-d:#0a4a52; --ink:#14313a; --mint:#e6f3f1; --mint2:#f3faf9;
+  --line:#cfe2df; --amber:#b86e00; --amber-bg:#fff6e5; --red:#a63a3a; --green:#1d7a4e; --mut:#55707a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.8;background:#fff;font-size:16px}
+a{color:var(--teal)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,74,82,.97);backdrop-filter:blur(6px);height:52px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+nav .in{display:flex;gap:4px;overflow-x:auto;padding:0 12px;width:100%;max-width:1180px;margin:0 auto;scrollbar-width:none}
+nav .in::-webkit-scrollbar{display:none}
+nav a{color:#d6eeeb;text-decoration:none;font-size:14px;white-space:nowrap;padding:6px 11px;border-radius:16px}
+nav a:hover,nav a.on{background:#fff;color:var(--teal-d);font-weight:600}
+.hero{margin-top:52px;position:relative;background:#0a4a52 url(hero.jpg) center/cover no-repeat;color:#fff;min-height:380px;display:flex;align-items:center}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,50,58,.95) 0%,rgba(7,50,58,.82) 48%,rgba(7,50,58,.25) 100%)}
+.hero .in{position:relative;max-width:1080px;margin:0 auto;padding:56px 22px}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.3;margin:0 0 14px;letter-spacing:.5px}
+.hero p{max-width:640px;font-size:clamp(15px,2.2vw,18px);margin:0;color:#e4f4f1}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:3px 12px;border-radius:14px;font-size:13px;margin-bottom:14px}
+.stats{background:var(--mint);border-bottom:1px solid var(--line)}
+.stats .in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:18px 12px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-size:clamp(20px,3.4vw,30px);color:var(--teal);line-height:1.2}
+.stat span{font-size:13px;color:var(--mut)}
+section{padding:54px 0 14px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h2{font-size:clamp(23px,3.6vw,31px);color:var(--teal-d);margin:0 0 6px;display:flex;align-items:center;gap:12px}
+h2 .n{background:var(--teal);color:#fff;border-radius:10px;font-size:15px;padding:2px 10px;font-weight:600;flex:none}
+.lead{color:var(--mut);margin:0 0 22px}
+h3{color:var(--teal);font-size:19px;margin:30px 0 8px}
+p{margin:.5em 0 1em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:16px 0}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px 18px 12px;background:#fff;box-shadow:0 2px 10px rgba(15,107,115,.06)}
+.card h4{margin:0 0 6px;font-size:18px;color:var(--teal-d)}
+.card .pill{display:inline-block;font-size:12px;padding:1px 10px;border-radius:12px;margin-bottom:6px;font-weight:600}
+.p-s{background:#d9f0e4;color:var(--green)} .p-o{background:#dcecf8;color:#1f5f94} .p-t{background:#f6e3df;color:var(--red)} .p-c{background:#fdeccb;color:var(--amber)}
+.box{border-left:5px solid var(--teal);background:var(--mint2);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0}
+.box.warn{border-color:var(--amber);background:var(--amber-bg)}
+.box.say{border-color:#7a5ea8;background:#f5f1fb}
+.box b.t{display:block;margin-bottom:2px}
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th{background:var(--teal);color:#fff;text-align:left;padding:10px 12px;font-weight:600;white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--mint2)}
+td.k{font-weight:600;color:var(--teal-d);white-space:nowrap}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#e9f2f1;border-radius:5px;padding:0 5px;font-size:.92em;color:var(--teal-d)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hl{background:linear-gradient(transparent 60%,#ffe8a8 60%)}
+.ladder{display:flex;flex-direction:column;gap:0;margin:16px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.ladder div{padding:12px 16px;border-top:1px solid var(--line)}
+.ladder div:first-child{border-top:0}
+.ladder .a{background:#fff}.ladder .b{background:var(--mint2)}
+.ladder b{color:var(--teal-d)}
+.flt{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.flt button{border:1px solid var(--teal);background:#fff;color:var(--teal);border-radius:18px;padding:5px 15px;cursor:pointer;font-size:14px;font-family:inherit}
+.flt button.on{background:var(--teal);color:#fff}
+.sc{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin:12px 0 20px}
+.sc .card{padding:14px 16px 10px}
+.sc .card p{margin:.3em 0;font-size:15px}
+.sc .card .l{color:var(--mut);font-size:13px;margin-right:4px}
+details{border:1px solid var(--line);border-radius:12px;margin:10px 0;background:#fff}
+summary{cursor:pointer;padding:13px 16px;font-weight:600;color:var(--teal-d);list-style:none;position:relative;padding-right:40px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";position:absolute;right:16px;top:12px;color:var(--teal)}
+details[open] summary:after{content:"－"}
+details[open] summary{border-bottom:1px solid var(--line);background:var(--mint2);border-radius:12px 12px 0 0}
+details .a{padding:10px 18px 6px}
+details .a .short{font-weight:600}
+.rm{display:inline-block;font-size:12px;color:var(--amber);background:var(--amber-bg);border:1px solid #f1d49b;border-radius:10px;padding:0 9px;margin-left:6px}
+ul{padding-left:1.25em;margin:.4em 0 1em} li{margin:.25em 0}
+.chk li{list-style:none;margin-left:-1.1em;padding-left:1.7em;position:relative}
+.chk li:before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+.src{font-size:13px;color:var(--mut)}
+footer{margin-top:50px;background:var(--teal-d);color:#cfe6e3;padding:34px 0 40px;font-size:14px}
+footer h5{color:#fff;margin:0 0 6px;font-size:16px}
+footer .disc{background:rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;margin:0 0 20px;color:#fff;font-size:15px}
+footer ul{columns:2;column-gap:30px}
+@media(max-width:760px){
+  .two{grid-template-columns:1fr}
+  .stats .in{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .hero{min-height:340px}
+  .hero:before{background:linear-gradient(180deg,rgba(7,50,58,.92),rgba(7,50,58,.78))}
+  section{padding-top:42px}
+  footer ul{columns:1}
+  .sc{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav><div class="in" id="nav">
+<a href="#top">首頁</a><a href="#s1">一句話看懂</a><a href="#s2">手術的定義</a><a href="#codes">226／227／3343</a><a href="#s3">兩種給付</a><a href="#s4">手術表怎麼看</a><a href="#rs">實支實付</a><a href="#s5">常見情境</a><a href="#s6">處置vs門診手術</a><a href="#qa">客戶最常問</a><a href="#s7">業務誤區</a><a href="#s8">檢視要點</a><a href="#src">來源</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="in">
+<span class="tag">手術險教學頁・給業務夥伴</span>
+<h1>醫師說「開刀」，<br>保險認不認？一次講清楚手術險</h1>
+<p>從「什麼叫手術」、健保 226／227／3343 代碼，到定額型與實支實付怎麼分工，再到客戶最常問的情境。目標是讓我們跟客戶說明時，更清楚、更踏實。</p>
+</div></header>
+
+<div class="stats"><div class="in">
+<div class="stat"><b>3 類</b><span>住院手術・門診手術・處置</span></div>
+<div class="stat"><b>2 種</b><span>給付方式：定額型／實支實付</span></div>
+<div class="stat"><b>62001–88054</b><span>業界常用的健保「227 手術」碼區間</span></div>
+<div class="stat"><b>14 個</b><span>客戶常見情境＋牙科等 Q&amp;A</span></div>
+</div></div>
+
+<!-- 1 -->
+<section id="s1"><div class="wrap">
+<h2><span class="n">1</span>一句話看懂手術險</h2>
+<p class="lead">手術險是「符合保單約定的手術，就給付一筆約定金額」的保障；<b>認定標準看保單條款，不是看醫師口語說的「開刀」。</b></p>
+
+<div class="cards">
+<div class="card"><h4>它是什麼</h4><p>屬於定額（固定給付）型。依手術表上該項手術的等級，用「單位保額 × 倍數（或百分比）」算出金額，與實際花多少錢無關；不論用健保或自費，只要符合條件就給付。</p></div>
+<div class="card"><h4>為什麼現在更常被問</h4><p>醫療技術進步，許多以前需要住院的手術，現在可以微創、當天回家。金管會也曾在函示中提到，技術進步使部分手術不必到醫院治療，因此衍生理賠爭議，請保險公司對「具高度替代性」的醫療行為從寬或協議處理。<span class="src">（來源：金管會法規共用系統）</span></p></div>
+<div class="card"><h4>夥伴最該記得的一件事</h4><p>「有開刀」≠「有賠手術金」。差別常常出現在：①健保代碼屬「手術」還是「處置」；②條款有沒有含門診手術；③手術表有沒有列、沒列時能不能協議。</p></div>
+</div>
+
+<div class="box"><b class="t">本頁怎麼用</b>先看第 2 章與「226／227／3343」對照圖表，建立概念；第 5、6 章當作跟客戶解釋的情境素材；第 7、8 章整理了常見誤區與檢視保單的要點。所有金額與倍數均為「假設」示意。</div>
+</div></section>
+
+<!-- 2 -->
+<section id="s2"><div class="wrap">
+<h2><span class="n">2</span>手術的定義：三分法</h2>
+<p class="lead">保險理賠上，常把醫療行為分成「住院手術、門診手術、處置」三類來看。</p>
+
+<div class="tw"><table>
+<thead><tr><th>類別</th><th>一般說法</th><th>常見例子</th><th>手術險通常怎麼看</th></tr></thead>
+<tbody>
+<tr><td class="k">住院手術</td><td>需要「住院」（通常指正式辦理住院手續、在醫院接受診療，日間住院多不算），且屬於條款所稱的「手術」。<b>「手術」的認定方式各商品不同</b>：有的限健保 2-2-7（或加 3-3-4-3），有的以自訂手術表為準、表外再協議；並非所有商品都以「在健保手術清單內」為唯一標準。</td><td>闌尾切除、膽囊切除、人工關節置換、剖腹產（醫療必要）等</td><td>多數手術險都保。仍要看手術表與條款對「手術」「住院」的定義。</td></tr>
+<tr><td class="k">門診手術</td><td>不需住院、當天回家，但<b>仍須是符合條款定義的「手術」</b>；只是當天回家，不等於算門診手術</td><td>部分皮膚腫瘤切除、白內障手術、內痔結紮等</td><td><b>要看條款有沒有含「門診手術」</b>；有些還限定醫院、有年度次數上限。</td></tr>
+<tr><td class="k">處置</td><td>較輕度的治療行為，健保把它歸在「治療處置」，不是「手術」</td><td>大腸鏡下息肉切除、簡單傷口縫合與清創、換藥、尿路結石體外震波碎石等</td><td>手術險常<b>不算手術金</b>；少數商品另設「特定處置」給付（限表列項目）。</td></tr>
+</tbody></table></div>
+<p class="src">來源：健保署「醫療服務給付項目及支付標準」章節架構；保險公司公開之附約條款範本（多設有「手術」「特定處置」兩套附表）。</p>
+
+<h3>為什麼同樣是「切息肉」，一個算處置、一個算手術？</h3>
+<p>因為健保是看「<b>實際怎麼做、用哪一個診療項目申報</b>」，不是看「切了什麼」。</p>
+<div class="two">
+<div class="card"><span class="pill p-t">處置（2-2-6）</span><h4>大腸鏡下切除息肉</h4><p>在內視鏡室、用大腸鏡切除。健保碼如 <span class="code">49027C</span>（1～3 顆）、<span class="code">49032C</span>（4～9 顆）、<span class="code">49033C</span>（10 顆以上），屬第二部第二章第六節「治療處置」。</p></div>
+<div class="card"><span class="pill p-s">手術（2-2-7）</span><h4>經直腸大腸息肉切除術</h4><p>息肉位置或大小不適合用大腸鏡處理，進手術室處理，申報 <span class="code">74207C</span>，屬第二部第二章第七節「手術」。健保審查另有適應症條件（例如息肉大小）。</p></div>
+</div>
+<p>所以同樣是「切息肉」，若條款只認 2-2-7，前者可能不算手術、後者才算。分界不在診斷書有沒有「經直腸」三個字，而在<b>實際執行的方式與申報的健保項目</b>；而且「處置」並非一定不賠，有些商品的「特定處置」附表會列出大腸鏡息肉切除術，要看條款。<b>診斷書應照實際醫療行為與健保項目名稱記載，不是為了理賠改寫。</b></p>
+<p class="src">來源：健保署支付標準與審查注意事項；台灣消化系醫學會轉載健保署函（74207C 審查原則）；保險公司公開之理賠說明。</p>
+
+<div class="box warn"><b class="t">「有開刀」為什麼可能不賠手術金？常見四種原因</b>
+<ul><li>健保把它歸在「處置」，而條款只認「手術」。</li><li>條款限「住院手術」，但客戶當天回家（沒有含門診手術）。</li><li>手術表沒有列、條款也沒約定可協議。</li><li>在診所做，但條款寫的是「醫院」。（金融消費評議中心有類似案例，屬個案認定。）</li></ul></div>
+</div></section>
+
+<!-- codes -->
+<section id="codes"><div class="wrap">
+<h2><span class="n">★</span>226／227／3343 到底是什麼？</h2>
+<p class="lead">這幾組數字不是保單的商品代碼，而是「全民健康保險醫療服務給付項目及支付標準」（簡稱健保支付標準）的<b>章節編號</b>。</p>
+
+<div class="box"><b class="t">怎麼讀這組數字</b>
+健保支付標準分「部／章／節（／項）」。<br>
+<b>226</b> ＝ 第 <b>2</b> 部（西醫）・第 <b>2</b> 章（特定診療）・第 <b>6</b> 節（治療處置）→ 常寫成 2-2-6<br>
+<b>227</b> ＝ 第 <b>2</b> 部・第 <b>2</b> 章・第 <b>7</b> 節（手術）→ 2-2-7<br>
+<b>3343</b> ＝ 第 <b>3</b> 部（牙醫）・第 <b>3</b> 章（牙科處置及手術）・第 <b>4</b> 節（口腔顎面外科）・第 <b>3</b> 項（開刀房手術）→ 3-3-4-3
+</div>
+
+<div class="tw"><table>
+<thead><tr><th>簡稱</th><th>健保支付標準位置</th><th>是什麼</th><th>診療項目代碼範圍<span class="rm">業界整理，以最新版為準</span></th><th>手術險上的意義</th></tr></thead>
+<tbody>
+<tr><td class="k">221</td><td>第二部・第二章・第一節</td><td>檢查（例：各類檢查、內視鏡檢查等）</td><td>依支付標準</td><td>不是手術。《鏡週刊》舉例心導管屬「221」；實際申報碼請以支付標準查詢為準。<span class="rm">待確認</span></td></tr>
+<tr><td class="k">226</td><td>第二部・第二章・第六節</td><td><b>治療處置</b>（處置費、創傷處置、泌尿／大腸肛門科處置、骨骼處置、透析等）</td><td><span class="code">47001</span>～<span class="code">61020</span></td><td>屬「處置」。條款若限 2-2-7，這裡的項目通常<b>不算手術</b>。</td></tr>
+<tr><td class="k">227</td><td>第二部・第二章・第七節</td><td><b>手術</b>（皮膚、乳房、筋骨、呼吸器、胸腔、心臟、血管、消化器、大腸直腸肛門、肝膽胰、泌尿生殖、女性生殖、神經外科、聽器、視器…）</td><td><span class="code">62001</span>～<span class="code">88054</span></td><td>最常被條款引用的「手術」範圍。</td></tr>
+<tr><td class="k">3343</td><td>第三部・第三章・第四節・第三項</td><td>牙科<b>開刀房手術</b>（口腔顎面外科）</td><td><span class="code">92201</span>～<span class="code">92230</span></td><td>條款若寫「2-2-7 或 3-3-4-3」，牙科只有開刀房手術才算；一般門診拔牙、牙周、根管多不在內。</td></tr>
+</tbody></table></div>
+
+<div class="box warn"><b class="t">關於「3343」要特別說清楚（已查證＋待確認事項）</b>
+<ul>
+<li>我們查證到的條款寫法是「第三部第三章第四節第三項」，也就是 <b>3-3-4-3</b>，不是「33 與 43 兩個章」。《鏡週刊》文中寫「第 227 或第 3343 章節」，是把 3-3-4-3 省略連字號的口語寫法。</li>
+<li>牙科同一節內還分三項：<b>3-3-4-1 門診處置、3-3-4-2 門診手術、3-3-4-3 開刀房手術</b>。民國 108 年支付標準修訂後才拆成這樣，因此舊保單有些「3-3-4-2」，指的其實是現在的 3-3-4-3。</li>
+<li>代碼區間（92201～92230）出自保險專欄對支付標準的整理，<b>請以健保署最新支付標準／查詢系統為準</b>。</li>
+</ul></div>
+
+<h3>怎麼用這張圖，判斷一個醫療行為「算不算手術」？</h3>
+<div class="ladder">
+<div class="a"><b>Step 1　找到實際申報的健保項目</b>：收據明細、手術紀錄、診斷書可看到項目名稱；也可到健保署「醫療服務給付項目及支付標準」查詢系統用名稱或代碼查。</div>
+<div class="b"><b>Step 2　看它落在哪一節</b>：2-2-7（手術）？2-2-6（處置）？還是 3-3-4-3？</div>
+<div class="a"><b>Step 3　回到保單條款</b>：條款如何定義「手術」（只認 2-2-7？2-2-7＋3-3-4-3？有自訂手術表？）；有沒有含門診手術、特定處置。</div>
+<div class="b"><b>Step 4　表上沒有時</b>：條款有沒有「協議比照程度相當的手術」；沒有的話，通常就依條款字面。</div>
+</div>
+
+<h3>市面上手術險的兩種常見設計（《鏡週刊》整理）</h3>
+<div class="two">
+<div class="card"><h4>設計 A：只用自訂手術表</h4><p>表列項目才賠；不在表上的，條款通常約定「協議比照程度相當的項目」。</p></div>
+<div class="card"><h4>設計 B：自訂手術表＋健保 227／3343 作為協議的門檻</h4><p>表上有的賠；表上沒有的，必須屬於 2-2-7（或 3-3-4-3）範圍，才有機會協議比照理賠。該文指出目前市面約九成以上商品採此設計。</p></div>
+</div>
+<p class="src">來源：《鏡週刊》「手術險拆解」系列（本頁以自己的話整理）；健保署支付標準章節；金融消費評議中心案例；保險專欄對 226／227／3343 的整理。</p>
+</div></section>
+
+<!-- 3 -->
+<section id="s3"><div class="wrap">
+<h2><span class="n">3</span>兩種給付方式：定額型 vs 實支實付</h2>
+<p class="lead">金管會對住院醫療類保險的分類很清楚：實支實付型是以「填補」實際醫療費用為目的；定（日）額型是按約定給付固定金額。</p>
+
+<div class="tw"><table>
+<thead><tr><th></th><th>定額型（手術險常見）</th><th>實支實付型</th></tr></thead>
+<tbody>
+<tr><td class="k">怎麼算</td><td>手術表等級 × 保額（倍數或百分比）</td><td>實際自負／健保不給付的費用，在限額內核付</td></tr>
+<tr><td class="k">要不要收據</td><td>通常不以收據金額計算（仍要診斷書、手術紀錄等）</td><td>要醫療費用收據（現行商品為正本）</td></tr>
+<tr><td class="k">跟實際花費的關係</td><td>無關。花 3 萬或 30 萬，給付一樣</td><td>有關。花多少賠多少，到限額為止</td></tr>
+<tr><td class="k">最擅長補的</td><td>手術本身的固定補貼、收入損失的心理緩衝</td><td>自費醫材、藥品、病房差額、手術費等「帳單上的自費欄」</td></tr>
+<tr><td class="k">要留意</td><td>手術定義、手術表等級、門診手術是否含</td><td>各分項限額、雜費條款寫法、收據與補位規則</td></tr>
+</tbody></table></div>
+
+<h3>計算範例</h3>
+<div class="two">
+<div class="card"><h4>範例一：假設值</h4><p>假設手術表上某項手術為 <b>30 倍</b>，單位保額 <b>1,000 元</b>：<br>1,000 × 30 ＝ <b>30,000 元</b>。（純屬示意，不代表任何商品）<br><span class="src">實際商品的乘數基準各不同：有的乘「保險金額」、有的乘「住院醫療保險金日額」，有的另乘增額係數，或以百分比表示。</span></p></div>
+<div class="card"><h4>範例二：《鏡週刊》文章舉例</h4><p>文章舉例：保額 3 萬元，門診小手術（如子宮頸切片）表列 5％ → 1,500 元；二條冠狀動脈手術可能 300％ → 9 萬元；重大器官移植可達 800％。手術越重大，倍率越高。</p></div>
+</div>
+
+<h3>「手術險」和「實支實付」各管哪一塊？</h3>
+<p>《鏡週刊》點出一個容易被忽略的事實：一場大型手術真正昂貴的，往往不是醫師的「手術費」，而是<b>自費醫材與耗材</b>。文章舉例：以達文西手術切除第一期甲狀腺癌，總花費約 30 萬元，其中屬於「手術費」的只有約 2.6 萬元（文章舉例，非通則）。</p>
+<div class="two">
+<div class="card"><h4>手術險</h4><ul><li>依手術表等級給定額，不隨實際花費增加</li><li>不論健保或自費，符合條件就給付</li><li>像是一筆額外補貼</li></ul></div>
+<div class="card"><h4>實支實付</h4><ul><li>人工關節、心臟瓣膜、止血材料、機械手臂耗材等自費項目，通常落在「醫療雜費」</li><li>憑收據、在限額內核付</li><li>是否含門診手術、雜費限額多少，是重點</li></ul></div>
+</div>
+<div class="box">兩者不是二選一，而是<b>各管一塊、互相補位</b>：實支實付補「實際花費」，手術險補「約定金額」。沒有足夠的實支實付時，就算手術險順利理賠，也未必足以支應龐大的自費醫材費用。</div>
+<p class="src">來源：金管會「常見的健康保險」（理財網）、保險局公告；《鏡週刊》「手術險拆解 2」；保險公司公開條款範本。</p>
+</div></section>
+
+<!-- 4 -->
+<section id="s4"><div class="wrap">
+<h2><span class="n">4</span>手術表怎麼看</h2>
+<p class="lead">手術表是條款的附表，列出手術名稱與給付等級，是定額型手術險計算金額的依據。</p>
+
+<div class="cards">
+<div class="card"><h4>分級／倍數</h4><p>常見有兩種表達：<b>倍數</b>（例如 3 倍～80 倍）或<b>百分比</b>（例如 4％～500％）。等級越高的重大手術，倍數越高。實際範圍每個商品不同。</p></div>
+<div class="card"><h4>同一次、同一位置</h4><p>公開條款常見約定：同一次手術、同一手術位置做兩項以上手術時，<b>只給付倍數最高的一項</b>。不同位置或不同次手術是否分別計算，依條款。</p></div>
+<div class="card"><h4>表上沒有的新手術</h4><p>多數條款約定「與被保險人協議，比照表內程度相當的手術項目」。金管會函示要求保險公司依「程度相當」的認定原則辦理。協議的前提（例如須屬 2-2-7）依條款。</p></div>
+</div>
+
+<h3>健保支付標準的「手術」，和保單手術表有什麼不同？</h3>
+<div class="tw"><table>
+<thead><tr><th></th><th>健保支付標準 2-2-7</th><th>保單手術表</th></tr></thead>
+<tbody>
+<tr><td class="k">誰訂的</td><td>衛福部健保署，依健保給付與申報制度訂定</td><td>各保險公司，依商品設計並報主管機關</td></tr>
+<tr><td class="k">目的</td><td>決定健保怎麼支付點數</td><td>決定手術險給付等級與金額</td></tr>
+<tr><td class="k">更新</td><td>定期修訂；部分項目新增或修訂規範</td><td>依商品版本；舊商品依舊版條款</td></tr>
+<tr><td class="k">兩者關係</td><td colspan="2">條款可以只用其中一個、也可以兩者並用（例如：表上沒有，但屬 2-2-7，才協議比照）。<b>若條款有寫「支付標準如有變更，以變更後為準」，範圍會隨健保修訂而變動。</b></td></tr>
+</tbody></table></div>
+<p class="src">來源：健保署支付標準；金管會函示（手術名稱及費用表「程度相當」認定原則）；保險公司公開條款範本。</p>
+</div></section>
+
+<!-- rs -->
+<section id="rs"><div class="wrap">
+<h2><span class="n">5</span>實支實付醫療險：完整說明（現行）</h2>
+<p class="lead">客戶問手術險，十次有八次會連帶問到實支實付。以下以「現行」商品與規範為主。</p>
+
+<h3>5-1　定義與條款依據</h3>
+<ul>
+<li><b>實支實付型</b>：金管會說明，是以「填補被保險人住院醫療期間產生的醫療費用」為目的，具有補償性質；保險公司在一定限額內，按實際發生的醫療費用給付。</li>
+<li><b>定（日）額型</b>：不論實際醫療費用多少，按疾病項目或住院日數給付固定保險金。</li>
+<li>金管會也提醒：住院醫療保險以「住院」為給付前提；非癌症或重大疾病的住院醫療保險常有 <b>30 日等待期間</b>；各項給付都有上限。（具體以商品條款為準）</li>
+<li>條款基準：金管會公布的「住院醫療費用保險單示範條款（實支實付型）」，把給付分成<b>病房費、住院醫療費用（雜費）、手術費用</b>三塊，且僅就「健保規定應自行負擔、或不屬健保給付範圍」的費用核付。</li>
+</ul>
+<p class="src">來源：金管會保險局公告、金管會理財網「常見的健康保險」、金管會法規共用系統「住院醫療費用保險單示範條款（實支實付型）」、保險e聊站。</p>
+
+<h3>5-2　賠哪些？用「醫藥・醫材・醫術・醫檢・醫床」記住</h3>
+<div class="box warn"><b class="t">小提醒</b>這個五字口訣是便於記憶的整理方式，不是法規用語。下表是對照「示範條款」與公開條款的分項，實際項目與寫法以各商品條款為準。</div>
+<div class="tw"><table>
+<thead><tr><th>口訣</th><th>對應的條款分項</th><th>白話說明</th><th>要看條款的地方</th></tr></thead>
+<tbody>
+<tr><td class="k">醫藥</td><td>住院醫療費用：醫師指示用藥</td><td>住院期間，健保不給付的指示用藥</td><td>概括式或列舉式？是否含門診</td></tr>
+<tr><td class="k">醫材</td><td>住院醫療費用：「超過全民健康保險給付之住院醫療費用」等</td><td>自費醫材、耗材（人工關節、支架、特殊材料…）通常落在雜費</td><td><b>有沒有概括款</b>；有沒有「不包括」的字樣；雜費限額多少</td></tr>
+<tr><td class="k">醫術</td><td>手術費用保險金</td><td>手術相關費用，在「每次手術費用限額 × 手術表百分率」內</td><td>手術表百分率；是否含門診手術；與雜費是分開限額或共用</td></tr>
+<tr><td class="k">醫檢</td><td>雜費中的檢查、化驗、麻醉等</td><td>與治療相關、健保不給付的檢查</td><td>列舉式條款會逐項列出；概括式視是否屬「必要之醫療費用」；健康檢查屬除外責任</td></tr>
+<tr><td class="k">醫床</td><td>每日病房費用：超等住院病房費差額、管灌外膳食費、特別護士外護理費</td><td>單人或雙人房與健保房的差額</td><td>每日限額多少；有的商品把病房費與雜費共用限額</td></tr>
+</tbody></table></div>
+<p class="src">來源：金管會法規共用系統「住院醫療費用保險單示範條款（實支實付型）」第 5～8 條；保險e聊站；保險公司公開條款範本。</p>
+
+<h3>5-3　限額的概念：分項限額 vs 共用限額</h3>
+<ul>
+<li><b>病房費</b>：通常以「每日限額」計算（例如單人房差額 5,000 元，限額 1,000 元／日，住 3 天最多賠 3,000 元。此為保險e聊站舉例）。</li>
+<li><b>雜費（住院醫療費用）</b>：通常以「每次住院限額」計算。</li>
+<li><b>手術費</b>：以「每次手術費用限額 × 手術表百分率」為上限；同一次手術同一位置多項手術，取百分率最高的一項；同一次住院不同手術，示範條款是分別計算。</li>
+<li>有的商品把手術費併入雜費限額，或把病房費併入雜費限額，變成<b>共用限額</b>，一項花多、其他項就被壓縮。</li>
+<li>非以健保身分就醫者，示範條款規定給付比例<b>不得低於實際支付的 65％</b>（各商品比例依條款，常見有 65％、75％ 等）。</li>
+</ul>
+
+<h3>5-4　雜費條款：概括式 vs 列舉式</h3>
+<div class="two">
+<div class="card"><h4>概括式</h4><p>除了列出常見項目，最後有一款類似「超過全民健康保險給付之住院醫療費用」。新的自費藥、醫材、術式較有被納入的空間。</p></div>
+<div class="card"><h4>列舉式</h4><p>逐項列出可賠項目，沒列到的原則上不賠。要看有沒有「不包括」的字樣與單項上限。</p></div>
+</div>
+<p class="src">來源：保險e聊站「實支實付醫療險介紹」；金管會示範條款。</p>
+
+<h3>5-5　門診手術、特定處置要不要含？</h3>
+<p>示範條款的基準是「住院」才給付。許多現行商品另外設計「門診手術費用」「特定處置費用」，通常會有：</p>
+<ul class="chk"><li>每次限額，以及每年次數上限（各商品不同）</li><li>手術限「屬於 2-2-7 或 3-3-4-3」</li><li>特定處置只賠條款附表列出的項目</li><li>同一次、同一治療部位，門診手術與特定處置只給付其中一項</li></ul>
+<p>如果條款沒有含門診，保險公司可以不理賠；有時會通融，但那是個案，不能當作承諾。</p>
+
+<h3>5-6　現行規範：正本收據與補位（損害填補）</h3>
+<div class="cards">
+<div class="card"><h4>只能用正本</h4><p>金管會規定實支實付型醫療保險回歸「損害填補」：同一次醫療行為，同性質保險的理賠合計不得超過實際負擔的醫療費用。自民國 113 年 7 月 1 日起適用的新商品，以醫療費用收據<b>正本</b>申請理賠；要保人投保時須簽署「特別提醒事項聲明書」。</p></div>
+<div class="card"><h4>有兩張以上怎麼辦</h4><p>同性質、有兩張：客戶可自選第一家申請；第一家在限額內給付後，開立<b>理賠差額證明書</b>，客戶再向第二家申請「不足的差額」。<br>不同性質（例如住院實支與意外傷害實支）：第一家開立<b>正本留存證明書</b>與收據影本，視同正本，可到另一家申請；兩類可分開計算。</p></div>
+<div class="card"><h4>公司不得推託</h4><p>保險局表示，保險公司不得拒絕受理申請，也不得要求客戶先向其他公司申請；有推託情事可向保險局申訴。各公司也應依客戶需求與適合度，判斷是否接受投保多張，不得過度承保。</p></div>
+</div>
+<p class="src">來源：中央社、工商時報、科技新報等對金管會保險局記者會的報導；金管會保險局公告；保險e聊站。實際配套與細節以金管會最新公告及各公司條款為準。</p>
+
+<h3>5-7　實支實付、手術險、日額型：怎麼互補？</h3>
+<div class="tw"><table>
+<thead><tr><th>保障</th><th>補哪一塊</th><th>特點</th></tr></thead>
+<tbody>
+<tr><td class="k">實支實付</td><td>住院期間的自費費用（醫藥、醫材、醫術、醫檢、醫床）</td><td>花多少賠多少，到限額；要收據</td></tr>
+<tr><td class="k">手術險（定額型）</td><td>手術的約定補貼</td><td>依手術表等級給定額，不論健保或自費；表外、處置另看條款</td></tr>
+<tr><td class="k">住院日額型</td><td>住院天數的固定補貼（如收入損失、看護、交通）</td><td>依住院日數 × 日額；通常不看收據；以住院為前提</td></tr>
+</tbody></table></div>
+<p>《鏡週刊》整理的專家看法也提到：手術險比較像「小確幸」，金額或許不高，但算是一筆額外補貼；建議先盤點重大傷病、癌症、實支實付等核心保障，再依預算考慮手術險。</p>
+
+<h3>5-8　客戶對實支實付常見疑問</h3>
+<details><summary>門診手術有沒有賠？</summary><div class="a"><p class="short">要看條款有沒有含「門診手術」。</p><p>示範條款以住院為基準；許多現行商品另設門診手術給付，但常限於 2-2-7 或 3-3-4-3，且有每次限額與年度次數。沒有含的話，不是一定賠。</p></div></details>
+<details><summary>達文西的自費醫材，能不能賠？</summary><div class="a"><p class="short">機械手臂相關的耗材，通常落在「醫療雜費」，要看雜費條款與限額。</p><p>健保署資料顯示，部分達文西手術的「手術費」已比照腹腔鏡項目支付，機械手臂輔助相關醫材仍由病人自費。能賠多少，看雜費條款是概括式還是列舉式，以及限額夠不夠。<span class="rm">依條款</span></p></div></details>
+<details><summary>病房差額怎麼賠？</summary><div class="a"><p class="short">看「每日病房費用限額」與住院日數。</p><p>示範條款所列：超等住院的病房費差額、管灌飲食以外的膳食費、特別護士以外的護理費。有些商品把病房費併入雜費限額。</p></div></details>
+<details><summary>收據要怎麼處理？</summary><div class="a"><p class="short">現行商品以正本收據申請；有多張時，用「差額證明書」或「正本留存證明書」接力。</p><p>建議客戶：住院時先問醫院收據開立方式、收據正本妥善保存；有兩家以上時，先想好從哪一家開始申請。</p></div></details>
+<details><summary>沒有用健保身分就醫，會賠嗎？</summary><div class="a"><p class="short">通常會，但比例打折。</p><p>示範條款規定比例不得低於 65％；各商品實際比例依條款。</p></div></details>
+
+<h3>5-9　給業務：現行與舊保單的快速對照</h3>
+<div class="box warn"><b class="t">這一小節只供檢視客戶「既有保單」時快速參考</b>
+<ul>
+<li>客戶要投保，只能買<b>現行</b>商品，以現行規範為準。</li>
+<li>金管會新制<b>不溯及既往</b>：民國 113 年 7 月 1 日前投保的舊保單，續保時仍依原條款，有的可用副本收據。但舊保單<b>不能轉成新制</b>，也不要向客戶承諾可以轉換。</li>
+<li>舊保單的手術定義、限額、門診手術是否含，都以<b>當年的條款版本</b>為準，請逐張核對。</li>
+</ul></div>
+</div></section>
+
+<!-- 5 -->
+<section id="s5"><div class="wrap">
+<h2><span class="n">6</span>客戶常見情境舉例</h2>
+<p class="lead">格式：情境 → 通常算不算手術 → 要看什麼條款。「依條款」代表各公司寫法不同，不要武斷回答。</p>
+<div class="flt" id="flt">
+<button class="on" data-f="all">全部</button><button data-f="s">通常屬手術</button><button data-f="t">常被歸為處置</button><button data-f="c">依條款／個案</button>
+</div>
+<div class="sc" id="sc">
+
+<div class="card" data-k="t"><span class="pill p-t">常被歸為處置</span><h4>① 大腸鏡切息肉</h4>
+<p><span class="l">通常：</span>一般屬 2-2-6 處置（<span class="code">49027C</span> 等）。</p>
+<p><span class="l">看條款：</span>手術是否限 2-2-7；有無「特定處置」且表列「大腸鏡息肉切除」；實支實付是否含門診處置。</p></div>
+
+<div class="card" data-k="s"><span class="pill p-s">通常屬手術</span><h4>② 經直腸息肉切除（手術室）</h4>
+<p><span class="l">通常：</span>2-2-7 手術（<span class="code">74207C</span>）。</p>
+<p><span class="l">看條款：</span>是否含門診手術；手術表等級。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>③ 白內障（超音波乳化＋人工水晶體）</h4>
+<p><span class="l">通常：</span>常申報 <span class="code">86008C</span>（2-2-7 視器項下）；門診也可能以論病例計酬方式申報，實際看收據明細。</p>
+<p><span class="l">看條款：</span>是否含門診手術、限醫院或含診所。金管會函示曾以白內障為例，對「在醫院與診所間具高度替代性」者，建議視個案協議或從寬。自費特殊水晶體的差額，看實支雜費。</p></div>
+
+<div class="card" data-k="s"><span class="pill p-s">通常屬手術</span><h4>④ 剖腹產</h4>
+<p><span class="l">通常：</span>支付標準 2-2-7 有剖腹產項目。</p>
+<p><span class="l">看條款：</span>多數醫療險把「懷孕、分娩」列為除外，但「醫療必要的剖腹產」符合特定情況時不在此限（示範條款有列出情況，如胎位不正、多胞胎、產程遲滯等）。自行要求的剖腹產要看條款。</p></div>
+
+<div class="card" data-k="s"><span class="pill p-s">通常屬手術</span><h4>⑤ 闌尾炎（盲腸）切除</h4>
+<p><span class="l">通常：</span>2-2-7 消化器・闌尾項下。</p>
+<p><span class="l">看條款：</span>手術表等級；腹腔鏡或傳統開腹是否同等級，依手術表。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑥ 骨折復位／內固定</h4>
+<p><span class="l">通常：</span>開刀做骨折內固定，屬 2-2-7 筋骨項下手術；單純徒手復位、外固定、石膏，可能在其他節或處置。</p>
+<p><span class="l">看條款：</span>以實際申報項目為準；意外傷害所致者，另看意外醫療條款。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑦ 腫瘤／皮膚腫物切除</h4>
+<p><span class="l">通常：</span>皮膚及皮下腫瘤切除屬 2-2-7 皮膚項下（如 <span class="code">62001C</span> 顏面腫瘤＜1 公分）；良性小腫物是否門診手術要看項目。</p>
+<p><span class="l">看條款：</span>是否含門診手術。癌症手術多屬防癌險／癌症手術專屬給付：條款常要求先「診斷確定罹患癌症」（癌症定義通常要經病理檢驗確定），且手術須以癌症或其併發症為直接原因，詳見 Q&amp;A。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑧ 微創／腹腔鏡手術</h4>
+<p><span class="l">通常：</span>腹腔鏡手術多有對應的 2-2-7 項目，以實際術式與申報碼為準。</p>
+<p><span class="l">看條款：</span>手術表是否有列腹腔鏡；是否與傳統手術同等級。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑨ 達文西機械手臂手術</h4>
+<p><span class="l">通常：</span>達文西是「手術方式」，並非單一項目。健保署公布部分術式的手術費比照腹腔鏡項目，機械手臂相關醫材由病人自費。</p>
+<p><span class="l">看條款：</span>手術本身是否在手術表／2-2-7；自費耗材屬實支雜費，看雜費條款。</p></div>
+
+<div class="card" data-k="t"><span class="pill p-t">常被歸為處置</span><h4>⑩ 傷口縫合、清創</h4>
+<p><span class="l">通常：</span>多屬 2-2-6 創傷處置（如 <span class="code">48001C</span> 淺部創傷處理、<span class="code">48004C</span> 深部複雜創傷處理）。</p>
+<p><span class="l">看條款：</span>有些商品另設「意外創傷縫合處置」給付；是否含門診、是否限醫院。</p></div>
+
+<div class="card" data-k="s"><span class="pill p-s">通常屬手術</span><h4>⑪ 膽結石（腹腔鏡膽囊切除）</h4>
+<p><span class="l">通常：</span>2-2-7 肝膽胰項下。</p>
+<p><span class="l">看條款：</span>手術表等級；腹腔鏡與開腹是否不同倍數。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑫ 痔瘡</h4>
+<p><span class="l">通常：</span>內痔結紮（<span class="code">74417C</span>）、外痔血栓切除、外痔／內外痔切除屬 2-2-7；痔冷凍、硬化劑注射、單純血栓切除屬 2-2-6 處置。</p>
+<p><span class="l">看條款：</span>是否含門診手術；限醫院還是含診所。</p></div>
+
+<div class="card" data-k="s"><span class="pill p-s">通常屬手術</span><h4>⑬ 子宮肌瘤切除</h4>
+<p><span class="l">通常：</span>2-2-7 女性生殖・子宮體項下。</p>
+<p><span class="l">看條款：</span>手術表等級；海扶刀等非傳統術式需看條款與個案。</p></div>
+
+<div class="card" data-k="c"><span class="pill p-c">依條款</span><h4>⑭ 心導管、膀胱鏡</h4>
+<p><span class="l">通常：</span>《鏡週刊》指出：心導管屬 221（檢查）、膀胱鏡屬 226（處置）；醫師口中是「手術」，條款限 227 時仍可能不賠。（待以支付標準查詢確認實際申報碼）</p>
+<p><span class="l">看條款：</span>有無特定處置或手術表列示（部分商品有列心導管、支架）。</p></div>
+
+</div>
+<p class="src">來源：健保署支付標準與審查注意事項；金管會示範條款與函示；金融消費評議中心常見問答；保險公司公開條款與商品說明；保險專業媒體整理。所有分類為「一般傾向」，不是個案理賠承諾。</p>
+</div></section>
+
+<!-- 6 -->
+<section id="s6"><div class="wrap">
+<h2><span class="n">7</span>處置 vs 門診手術：常見項目清單</h2>
+<p class="lead">以下為常見項目的「一般歸類」。實際以支付標準與申報碼為準；碼號僅為範例。</p>
+
+<h3>哪些常被歸為「處置」（2-2-6，代碼約 47001～61020）</h3>
+<div class="tw"><table>
+<thead><tr><th>項目</th><th>健保碼範例</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td class="k">大腸鏡下息肉切除</td><td><span class="code">49027C</span>／<span class="code">49032C</span>／<span class="code">49033C</span></td><td>依顆數分項；大腸息肉切除常見的處置</td></tr>
+<tr><td class="k">創傷處理（縫合、清創）</td><td><span class="code">48001C</span>、<span class="code">48004C</span> 等</td><td>淺部創傷、深部複雜創傷</td></tr>
+<tr><td class="k">換藥</td><td><span class="code">48011C</span>～<span class="code">48013C</span></td><td>依傷口大小分小、中、大換藥</td></tr>
+<tr><td class="k">痔冷凍、硬化劑注射、單純血栓切除</td><td>依支付標準</td><td>大腸肛門科處置</td></tr>
+<tr><td class="k">尿路結石體外震波碎石</td><td>依支付標準</td><td>常被保險公司列為特定處置的表列項目</td></tr>
+<tr><td class="k">眼科雷射治療</td><td>依支付標準</td><td>眼科處置／雷射；實際項目依申報</td></tr>
+</tbody></table></div>
+
+<h3>常見「門診手術」（符合手術定義、當天可回家）</h3>
+<div class="tw"><table>
+<thead><tr><th>項目</th><th>健保碼範例／位置</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td class="k">白內障手術</td><td><span class="code">86008C</span>（2-2-7 視器項下）</td><td>門診亦可能以論病例計酬申報，看收據明細</td></tr>
+<tr><td class="k">皮膚／皮下腫瘤切除</td><td><span class="code">62001C</span>起（2-2-7 皮膚項下）</td><td>依腫瘤位置與大小分項</td></tr>
+<tr><td class="k">內痔結紮</td><td><span class="code">74417C</span></td><td>健保審查有次數與適應症規範</td></tr>
+<tr><td class="k">牙科複雜齒切除術</td><td><span class="code">92016C</span>（3-3-4-2 門診手術）</td><td>不屬於 3-3-4-3；條款限 2-2-7＋3-3-4-3 時通常不算</td></tr>
+</tbody></table></div>
+
+<div class="box"><b class="t">給夥伴的提醒</b>
+清單是用來幫客戶「理解方向」，不是用來「保證賠或不賠」。同一項治療會因為部位、大小、術式、申報碼而不同；請客戶向醫院確認申報項目，並對照自己的條款。</div>
+<p class="src">來源：健保署支付標準與醫療費用審查注意事項；金融消費評議中心評議案例及法院個案整理；保險公司公開條款（特定處置表列項目範例）。</p>
+</div></section>
+
+<!-- qa -->
+<section id="qa"><div class="wrap">
+<h2><span class="n">8</span>客戶最常問（簡易 Q&amp;A）</h2>
+<p class="lead">每題先給簡短答案，再提醒「依條款」的地方。</p>
+
+<h3>牙科篇</h3>
+<details><summary>拔智齒有賠嗎？是處置還是手術？</summary><div class="a"><p class="short">要看條款，很多商品不賠。</p><p>牙科歸第三部。支付標準中，一般拔牙與複雜齒切除多在 3-3-4 的門診處置／門診手術，不屬於 3-3-4-3 開刀房手術。條款若限「2-2-7 或 3-3-4-3」，門診拔智齒通常不算手術。</p><p>要看：①手術定義限哪些節；②有沒有含門診手術與牙科；③手術表有沒有列複雜拔牙；④除外責任（示範條款有「非因當次住院事故治療之目的所進行之牙科手術」的除外）。<span class="rm">依條款</span></p></div></details>
+<details><summary>補牙、根管治療、牙周病治療呢？</summary><div class="a"><p class="short">通常不算手術，手術險多不賠。</p><p>金融消費評議中心曾以專業顧問意見認定：根管治療屬治療項目，不是手術。牙周治療在支付標準的 3-3-3，不在 3-3-4-3 範圍內。<span class="rm">依條款</span></p></div></details>
+<details><summary>植牙可以賠嗎？</summary><div class="a"><p class="short">疾病缺牙的植牙，多數不容易；因意外則另看意外醫療。</p><p>植牙常在門診進行，不屬 3-3-4-3；而且「裝設義齒等」多為除外責任（示範條款：因意外傷害所致者不在此限，且裝設以一次為限）。評議案例中，保險公司僅就手術費部分給付，人工牙根、牙冠等費用被認為屬義齒範圍。<span class="rm">依條款</span></p></div></details>
+<details><summary>牙齒的事，要看哪些條款？</summary><div class="a"><ul class="chk"><li>手術的定義：限 2-2-7？還加 3-3-4-3？或自訂手術表？</li><li>是傷病醫療還是意外醫療：意外傷害事故是「非由疾病引起的外來突發事故」，原因要寫清楚。</li><li>是否含門診手術、是否限「醫院」（診所是否算）</li><li>除外責任：義齒、牙科手術等</li><li>實際健保碼與所在節（3-3-3？3-3-4-1/2/3？）</li></ul></div></details>
+
+<h3>常見手術與條款問題</h3>
+<details><summary>微創／達文西算不算手術？</summary><div class="a"><p class="short">是「手術方式」，要看對應的實際手術項目。</p><p>達文西本身不是單一項目；手術費常比照腹腔鏡項目支付，機械手臂醫材多自費。手術金看手術本身是否在手術表／2-2-7；自費耗材看實支雜費。<span class="rm">依條款</span></p></div></details>
+<details><summary>剖腹產賠不賠？</summary><div class="a"><p class="short">要看是否為「醫療必要」，以及條款對分娩的除外與例外。</p><p>示範條款列出必要剖腹產的情況（如產程遲滯、胎兒窘迫、胎位不正、多胞胎等）不在除外範圍。自願剖腹產、單純自然產通常不屬。<span class="rm">依條款</span></p></div></details>
+<details><summary>白內障門診手術有沒有賠？</summary><div class="a"><p class="short">看條款有沒有含門診手術與可否在診所。</p><p>金融消費評議中心的常見問答說明：屬個案認定，依條款約定判斷。<span class="rm">依條款</span></p></div></details>
+<details><summary>大腸鏡切息肉？</summary><div class="a"><p class="short">一般是處置，不是手術。</p><p>手術險限 2-2-7 時，大腸鏡息肉切除（2-2-6）通常不算；若商品有「特定處置」且表列，則可能給付處置金額。另需拆分健檢與治療的收據。<span class="rm">依條款</span></p></div></details>
+<details><summary>骨折內固定？</summary><div class="a"><p class="short">開刀做內固定，一般屬手術；單純石膏固定或徒手復位較可能是處置。</p><p>以實際申報項目為準。意外所致者，另看意外醫療條款。<span class="rm">依條款</span></p></div></details>
+<details><summary>傷口縫合？</summary><div class="a"><p class="short">單純縫合、清創通常是處置。</p><p>有些商品另有意外創傷縫合處置給付。<span class="rm">依條款</span></p></div></details>
+<details><summary>美容整形有沒有賠？</summary><div class="a"><p class="short">美容手術、外科整型通常是除外責任。</p><p>示範條款：為重建基本功能所做的必要整型不在此限。是否「重建功能」，要看病歷與條款。<span class="rm">依條款</span></p></div></details>
+<details><summary>只有住院、沒有動手術，手術險會賠嗎？</summary><div class="a"><p class="short">不會。手術險要「有符合條件的手術」才給付。</p><p>住院的部分，要看住院醫療（日額型或實支實付）。</p></div></details>
+<details><summary>同一次做好幾項手術，怎麼賠？</summary><div class="a"><p class="short">定額型常見：同一次、同一位置只給付倍數最高的一項。</p><p>不同位置、不同次手術是否分別計算，以及年度門診手術次數上限，依條款。實支實付示範條款：同一住院期間兩項以上手術分別計算，但同一次手術同一位置取最高百分率。<span class="rm">依條款</span></p></div></details>
+<details><summary>門診手術有沒有等待期？</summary><div class="a"><p class="short">等待期通常是看「疾病」是否在等待期間內發生，和門診或住院無關。</p><p>金管會提醒：非癌症或重大疾病的住院醫療保險常約定 30 日等待期；公開附約範本也見疾病 30 日。意外傷害通常不受此限，但請以條款為準。<span class="rm">依條款</span></p></div></details>
+<details><summary>癌症手術要注意什麼？</summary><div class="a"><p class="short">要先符合條款的「診斷確定罹患癌症」，再看手術是不是以治療癌症（或其併發症）為直接目的。</p><p>公開的防癌險條款常見寫法：癌症須經病理檢驗確定，並於「診斷確定罹患癌症」後，因癌症或其併發症為直接原因接受手術，才給付癌症手術保險金（住院、門診金額不同）。手術當下尚未確診、事後才由病理確診者，是否算數取決於條款對「確診」的定義。金融消費評議中心案例也指出，為處理癌症術後併發症的導管置入屬「處置」而非癌症手術（該案最後依公平合理原則酌予補償，屬個案）。<span class="rm">依條款</span></p></div></details>
+<details><summary>醫師診斷書寫了「手術」，為什麼不賠？</summary><div class="a"><p class="short">因為保險看的是條款定義與健保項目，不是診斷書用詞。</p><p>可以請客戶向醫院確認實際申報的健保項目名稱／代碼，對照條款；若有疑義，先向保險公司申訴，再依金融消費者保護法向金融消費評議中心申請評議（申請程序依該中心公告）。</p></div></details>
+<details><summary>新出現的手術，表上沒有怎麼辦？</summary><div class="a"><p class="short">多數條款有「協議比照程度相當手術」的約定，但常需屬於 2-2-7（或 3-3-4-3）。</p><p>沒有這個約定的商品，表外手術就沒有空間。購買前先看這一條。</p></div></details>
+</div></section>
+
+<!-- 7 -->
+<section id="s7"><div class="wrap">
+<h2><span class="n">9</span>業務常見誤區與建議說法</h2>
+<div class="tw"><table>
+<thead><tr><th>常見誤區</th><th>比較踏實的說法</th></tr></thead>
+<tbody>
+<tr><td>「只要醫師說開刀就會賠」</td><td>「手術險看的是條款怎麼定義手術。我們可以先看一下您可能會做的手術，在哪一個健保項目、保單有沒有列。」</td></tr>
+<tr><td>「門診手術一定賠」</td><td>「這張有含門診手術，但有次數和項目的限制，我幫您把條款重點標出來。」</td></tr>
+<tr><td>「條款限 227 沒關係，實務上都會通融」</td><td>「通融屬個案，不能當作承諾。如果對這塊很在意，我們一起比較有保留協議空間的商品。」</td></tr>
+<tr><td>「有手術險就不用實支實付」</td><td>「手術險是約定金額，自費醫材費用主要由實支實付來補。兩個是不同的分工。」</td></tr>
+<tr><td>「倍數越高越好」</td><td>「倍數高的多是重大手術，日常常見的小手術倍數不高。比起最高倍數，更重要的是範圍與定義。」</td></tr>
+<tr><td>「舊保單可以改成新制」</td><td>「舊保單依當年的條款，新制不溯及既往。我們先把舊保單的條款看清楚，再看缺口怎麼補。」</td></tr>
+</tbody></table></div>
+
+<div class="box say"><b class="t">解釋時的小原則</b>
+用「情境」代替「名詞」；先確認客戶的擔心（花費？住院？收入？）；不確定的就說「我幫您查條款，再回覆您」。以解決客戶實際問題為出發點，不用恐嚇、也不比較別家。</div>
+</div></section>
+
+<!-- 8 -->
+<section id="s8"><div class="wrap">
+<h2><span class="n">10</span>跟客戶聊手術險的切入話題、檢視要點、投保順位</h2>
+
+<h3>可以怎麼開場聊</h3>
+<ul>
+<li>「現在很多手術上午開、下午就回家，您知道這種情況保險怎麼看嗎？」</li>
+<li>「如果真的需要做手術，您比較擔心哪一塊：手術本身、自費醫材，還是休養期間的收入？」</li>
+<li>「您手上的醫療險，有沒有含門診手術？我們一起翻一下條款。」</li>
+</ul>
+
+<h3>檢視保單時要看的條款</h3>
+<ul class="chk">
+<li><b>手術怎麼定義</b>：限 2-2-7？2-2-7＋3-3-4-3？自訂手術表？</li>
+<li><b>是否含門診手術</b>，有沒有限「醫院」、年度次數</li>
+<li><b>是否含處置</b>（特定處置表列項目）</li>
+<li><b>癌症手術</b>是否另有給付；需要先確診、符合條款定義</li>
+<li><b>手術表版本</b>（舊版／新版）與等級、倍數範圍</li>
+<li><b>表上沒有時</b>：有沒有「協議比照程度相當」；協議是否需屬 2-2-7</li>
+<li><b>單次限額與年度上限</b>、同一次多項手術的計算</li>
+<li><b>等待期</b>、除外責任（美容、牙科、分娩等）</li>
+<li><b>重複給付規則</b>：與實支實付、其他保險之間如何計算；實支實付要確認正本與補位規則</li>
+<li><b>協議理賠空間</b>：比較商品時，別只看廣告上的「最高倍率」（市面有主打最高 8 倍者）</li>
+</ul>
+
+<h3>投保優先順位與定位（《鏡週刊》整理的專家建議）</h3>
+<div class="ladder">
+<div class="a"><b>先做好核心保障</b>：重大傷病、癌症、實支實付醫療。</div>
+<div class="b"><b>再依預算評估手術險</b>：它屬於固定給付型，比較像額外補貼（專家形容為「小確幸」），並不是每個人都需要急著補買。</div>
+<div class="a"><b>比較商品時</b>：看保單如何定義手術、是否接受協議理賠、未列入附表時還有沒有空間；不是只看廣告倍率。</div>
+</div>
+<p>一日手術是醫療趨勢，但這不代表每位客戶都要加買手術險。我們比較能做的，是先陪客戶盤點目前的缺口，再說明各種保障補哪一塊。</p>
+<p class="src">來源：《鏡週刊》「手術險拆解」系列（含專家意見，本頁以自己的話整理）；金管會保險局公告；保險公司公開條款範本。</p>
+</div></section>
+
+<footer id="src"><div class="wrap">
+<div class="disc"><b>免責聲明：</b>內容僅供參考，實際以各公司條款與核保規定為準。</div>
+<h5>資料來源</h5>
+<ul>
+<li>衛生福利部中央健康保險署（全民健康保險醫療服務給付項目及支付標準、醫療費用審查注意事項）</li>
+<li>政府資料開放平臺</li>
+<li>行政院公報</li>
+<li>金融監督管理委員會法規共用系統（住院醫療費用保險單示範條款〈實支實付型〉、相關函釋）</li>
+<li>金融監督管理委員會保險局公告</li>
+<li>金融監督管理委員會理財網（常見的健康保險）</li>
+<li>財團法人金融消費評議中心（常見問答、評議書）</li>
+<li>保險e聊站</li>
+<li>各壽險公司公開之附約條款與商品說明（手術、特定處置、實支實付）</li>
+<li>鏡週刊（「手術險拆解」系列，2026 年 8 月）</li>
+<li>中央社、工商時報、科技新報（實支實付新制記者會報導）</li>
+<li>台灣消化系醫學會</li>
+<li>保險專業媒體與專欄整理（226／227／3343、牙科與痔瘡等情境）</li>
+</ul>
+<p>本頁所列金額、倍數及情境歸類，均為示意或一般傾向，不構成理賠承諾；健保支付標準與金管會規範可能修訂，請以最新公告為準。</p>
+</div></footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){var y=window.scrollY+90,cur=0;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=links[cur];if(on){var n=document.getElementById('nav');var l=on.offsetLeft-n.clientWidth/2+on.clientWidth/2;n.scrollLeft=l}}
+  window.addEventListener('scroll',spy,{passive:true});spy();
+  var btns=document.querySelectorAll('#flt button'),cards=document.querySelectorAll('#sc .card');
+  btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('on')});b.classList.add('on');var f=b.getAttribute('data-f');cards.forEach(function(c){c.style.display=(f==='all'||c.getAttribute('data-k')===f)?'':'none'})})});
+})();
+</script>
+</body>
+</html>
